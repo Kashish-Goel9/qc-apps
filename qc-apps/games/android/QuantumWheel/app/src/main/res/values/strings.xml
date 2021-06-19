@@ -2,5 +2,8 @@
     <string name="app_name">Quantum Wheel</string>
     <string name="title">Let the nature choose for you</string>
     <string name="description">A random number on the spinning wheel would be selected based on Quantum Superposition properties</string>
+    <string name="choice_list">Choice List</string>
+    <string name="add">Add</string>
+    <string name="submit_list">Submit List</string>
 
 </resources>

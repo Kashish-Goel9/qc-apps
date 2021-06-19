@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import rubikstudio.library.model.LuckyItem;
 
 public class MainActivity extends Activity {
     List<LuckyItem> data = new ArrayList<>();
+    ArrayList<Choice> choiceList = new ArrayList<>();
 
     private ProgressBar progressBar;
 
@@ -28,8 +30,17 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         final LuckyWheelView luckyWheelView = (LuckyWheelView) findViewById(R.id.luckyWheel);
+        choiceList = (ArrayList<Choice>) getIntent().getExtras().getSerializable("list");
+        for(int i = 0; i < choiceList.size(); i++)
+        {
+            LuckyItem luckyItem = new LuckyItem();
+            Choice choice = choiceList.get(i);
+            luckyItem.topText = choice.getChoiceName();
+            luckyItem.color = 0xffFFF3E0;
+            data.add(luckyItem);
+        }
 
-        LuckyItem luckyItem1 = new LuckyItem();
+       /* LuckyItem luckyItem1 = new LuckyItem();
         luckyItem1.topText = "100";
         luckyItem1.icon = R.drawable.test1;
         luckyItem1.color = 0xffFFF3E0;
@@ -78,7 +89,7 @@ public class MainActivity extends Activity {
         luckyItem8.topText = "800";
         luckyItem8.icon = R.drawable.test8;
         luckyItem8.color = 0xffFFE0B2;
-        data.add(luckyItem8);
+        data.add(luckyItem8); */
 
 
 //        LuckyItem luckyItem9 = new LuckyItem();
